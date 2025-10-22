@@ -22,7 +22,9 @@ private:
 public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
-    void delete_pos(int pos);
+    void delete_pos(int pos); {
+        if 
+    }
     void push_back(int value) {
         Node* newNode = new Node(value);
         if (!tail)  // if there's no tail, the list is empty
