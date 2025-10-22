@@ -64,6 +64,9 @@ public:
             head = newNode;
         }
     }
+    void pop_front(int value);
+    void pop_back(int value);
+
 
     void insert_after(int value, int position) {
         if (position < 0) {
