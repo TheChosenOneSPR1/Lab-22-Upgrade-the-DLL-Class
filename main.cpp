@@ -56,7 +56,7 @@ public:
 
     void push_front(int value) {
         Node* newNode = new Node(value);
-        if (!head)  // if there's no head, the list is empty
+        if (!head)  
             head = tail = newNode;
         else {
             newNode->next = head;
@@ -64,8 +64,28 @@ public:
             head = newNode;
         }
     }
-    void pop_front(int value);
-    void pop_back(int value);
+    void pop_front(); {
+        if (!head) return;
+        Node* temp = head;
+        head = head->next;
+        if (head) {
+            head->prev = nullptr;
+        } else {
+            tail = nullptr;
+        }
+        delete temp;
+    }
+    void pop_back(); {
+        if (!tail) return;
+        Node* temp = tail;
+        tail = tail->prev;
+        if (tail) {
+            tail->next = nullptr;
+        } else {
+            head = nullptr;
+        }
+        delete temp;
+    }
 
 
     void insert_after(int value, int position) {
