@@ -188,13 +188,13 @@ int main() {
     cout << "List forward: ";
     list.print();
 
-    count << "\n--- JUST TESTING ---\n";
+    cout << "\n--- JUST TESTING ---\n";
     DoublyLinkedList t;
     t.push_back(10);
-    t.push_back(10);
-    t.push_back(10);
-    t.push_back(10);
-    t.push_back(10);
+    t.push_back(20);
+    t.push_back(30);
+    t.push_back(40);
+    t.push_back(50);
 
     cout << "Start: ";
     t.print();
@@ -208,11 +208,11 @@ int main() {
     t.print();
 
     t.delete_val(10);
-    cout << "After delete_val(10): ";
+    cout << "After delete_val(1): ";
     t.print();
 
-    t.delete_pos(10);
-    cout << "After delete_val(10) again: ";
+    t.delete_pos(40);
+    cout << "After delete_val(40): ";
     t.print();
       
     return 0;
