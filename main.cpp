@@ -22,8 +22,8 @@ private:
 public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
-    void delete_pos(int pos); {
-        if (pos < 0 || !head;) return;
+    void delete_pos(int pos) {
+        if (pos < 0 || !head) return;
         Node* temp = head;
         int i = 0;
         while (temp && i < pos) {
@@ -64,26 +64,24 @@ public:
             head = newNode;
         }
     }
-    void pop_front(); {
+    void pop_front() {
         if (!head) return;
         Node* temp = head;
         head = head->next;
-        if (head) {
+        if (head) 
             head->prev = nullptr;
-        } else {
+         else 
             tail = nullptr;
-        }
         delete temp;
     }
-    void pop_back(); {
+    void pop_back() {
         if (!tail) return;
         Node* temp = tail;
         tail = tail->prev;
-        if (tail) {
+        if (tail) 
             tail->next = nullptr;
-        } else {
+         else 
             head = nullptr;
-        }
         delete temp;
     }
 
@@ -126,20 +124,19 @@ public:
         while (temp && temp->data != value)
             temp = temp->next;
 
-        if (!temp) return; // Value not found
+        if (!temp) return; 
 
         if (temp->prev) {
             temp->prev->next = temp->next;
         } else {
-            head = temp->next; // Deleting the head
+            head = temp->next; 
         }
 
         if (temp->next) {
             temp->next->prev = temp->prev;
-        } else {
-            tail = temp->prev; // Deleting the tail
+        } else { 
+            tail = temp->prev; 
         }
-
         delete temp;
     }
 
@@ -169,6 +166,7 @@ public:
             head = head->next;
             delete temp;
         }
+        tail = nullptr;
     }
 };
 
@@ -190,5 +188,32 @@ int main() {
     cout << "List forward: ";
     list.print();
 
+    count << "\n--- JUST TESTING ---\n";
+    DoublyLinkedList t;
+    t.push_back(10);
+    t.push_back(10);
+    t.push_back(10);
+    t.push_back(10);
+    t.push_back(10);
+
+    cout << "Start: ";
+    t.print();
+
+    t.pop_front();
+    cout << "After pop_front: ";
+    t.print();
+
+    t.pop_back();
+    cout << "After pop_back: ";
+    t.print();
+
+    t.delete_val(10);
+    cout << "After delete_val(10): ";
+    t.print();
+
+    t.delete_pos(10);
+    cout << "After delete_val(10) again: ";
+    t.print();
+      
     return 0;
 }
