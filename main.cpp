@@ -23,7 +23,25 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
     void delete_pos(int pos); {
-        if 
+        if (pos < 0 || !head;) return;
+        Node* temp = head;
+        int i = 0;
+        while (temp && i < pos) {
+            temp = temp->next;
+            i++;
+        }
+        if (!temp) return;
+        if (temp->prev) {
+            temp->prev->next = temp->next;
+        } else {
+            head = temp->next;
+        }
+        if (temp->next) {
+            temp->next->prev = temp->prev;
+        } else {
+            tail = temp->prev;
+        }
+        delete temp;
     }
     void push_back(int value) {
         Node* newNode = new Node(value);
